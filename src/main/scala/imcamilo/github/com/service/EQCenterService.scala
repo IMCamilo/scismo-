@@ -15,20 +15,21 @@ object EQCenterService {
 
   val tablePage: Document = Jsoup.connect("http://www.sismologia.cl/links/tabla.html").get
   val trElements: Elements = tablePage.getElementsByTag("tr")
-  def lastInformation(): Future[Elements] = {
+
+  def lastInformation(): Future[ListBuffer[String]] = {
     val thElements:Elements = trElements.select("th")
     val tdElements:Elements = trElements.select("td")
     var headers = Map(
       "date" -> thElements.get(0).text(),
       "place" -> thElements.get(1).text(),
       "magnitude" -> thElements.get(2).text())
-    var firstData: ListBuffer[String] = ListBuffer()
+    var allData: ListBuffer[String] = ListBuffer()
     var count = 0
     tdElements.forEach( row => {
-      firstData += row.text()
+      allData += row.text()
       count += count
     })
-    Future.value(trElements)
+    Future.value(allData)
   }
 
 }
