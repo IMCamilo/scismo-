@@ -15,28 +15,23 @@ object EQCenterService {
 
   //hace scrapping de la tabla que está en internet y almacena los datos en un Document llamado tablePage
   val tablePage: Document = Jsoup.connect("http://www.sismologia.cl/links/tabla.html").get
-
   //ahora saca todos los tr de esa tabla
   val trElements: Elements = tablePage.getElementsByTag("tr")
 
-  def lastInformation(): Future[ListBuffer[String]] = {
-
+  def lastInformation(): ListBuffer[String] = {
     //ahora saca todos los th de ese tr
     val thElements:Elements = trElements.select("th")
     //ahora saca todos los td de ese tr
     val tdElements:Elements = trElements.select("td")
-
     //map para almacenar los haders (que están en los th)
     var headers = Map(
       "date" -> thElements.get(0).text(),
       "place" -> thElements.get(1).text(),
       "magnitude" -> thElements.get(2).text())
-
     //almacena el valor de los td en la lista allData.
     var allData: ListBuffer[String] = ListBuffer()
     tdElements.forEach( row => { allData += row.text() })
-    
-    Future.value(allData)
+    allData
   }
 
 }
