@@ -1,7 +1,5 @@
-package imcamilo.github.com.service
+package imcamilo.com.github.service
 
-import com.twitter.util.Future
-import imcamilo.github.com.model.EQCL
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements

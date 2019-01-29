@@ -1,4 +1,4 @@
-package imcamilo.github.com.model
+package imcamilo.com.github.model
 
 /**
   * Created by Camilo Jorquera on 20-01-19
