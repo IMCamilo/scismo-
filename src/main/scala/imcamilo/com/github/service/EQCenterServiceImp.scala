@@ -19,7 +19,6 @@ object EQCenterServiceImp {
 
   def lastInformation(): mutable.LinkedHashSet[EQCL] = {
     trElements.forEach( row => {
-      val tdElements: Elements = row.getElementsByTag("td")
       dataEQ.add(EQCL(row.child(0).text(),row.child(1).text(),row.child(2).text()))
     })
     dataEQ
