@@ -5,7 +5,7 @@ import com.twitter.finagle.{Http, Service}
 import com.twitter.finagle.http.{Request, Response}
 import com.twitter.util.Await
 import imcamilo.com.github.model.EQCL
-import imcamilo.com.github.service.EQCenterServiceImp
+import imcamilo.com.github.service.EQCenterService
 import io.finch._
 import io.finch.catsEffect._
 import io.finch.circe._
@@ -15,7 +15,7 @@ import scala.collection.mutable
 
 object Scismo extends App {
 
-  lazy val eqService = EQCenterServiceImp
+  lazy val eqService = EQCenterService
 
   def eq: Endpoint[IO, mutable.LinkedHashSet[EQCL]] = get("eq") {
     Ok(eqService.lastInformation())

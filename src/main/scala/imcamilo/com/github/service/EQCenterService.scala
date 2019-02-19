@@ -10,7 +10,7 @@ import scala.collection.mutable
 /**
   * Created by Camilo Jorquera on 20-01-19
   */
-object EQCenterServiceImp {
+object EQCenterService {
 
   val tablePage: Document = Jsoup.connect("http://www.sismologia.cl/links/tabla.html").get
   val trElements: Elements = tablePage.getElementsByTag("tr")
