@@ -6,7 +6,6 @@ import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
 
 import scala.collection.mutable
-import scala.collection.mutable.ListBuffer
 
 /**
   * Created by Camilo Jorquera on 20-01-19
@@ -19,7 +18,7 @@ object EQCenterServiceImp {
 
   def lastInformation(): mutable.LinkedHashSet[EQCL] = {
     trElements.forEach( row => {
-      dataEQ.add(EQCL(row.child(0).text(),row.child(1).text(),row.child(2).text()))
+      dataEQ.add(EQCL(row.child(0).text(), row.child(1).text(), row.child(2).text()))
     })
     dataEQ
   }

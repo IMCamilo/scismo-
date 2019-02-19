@@ -17,20 +17,20 @@ object Scismo extends App {
 
   lazy val eqService = EQCenterServiceImp
 
-  def first: Endpoint[IO, mutable.LinkedHashSet[EQCL]] = get("eq") {
+  def eq: Endpoint[IO, mutable.LinkedHashSet[EQCL]] = get("eq") {
     Ok(eqService.lastInformation())
   }
 
-  def second: Endpoint[IO, String] = get("version" :: path[String]) { s: String =>
+  def information: Endpoint[IO, String] = get("version" :: path[String]) { s: String =>
     Ok(s)
   }
 
-  def third: Endpoint[IO, String] = get(pathEmpty) {
+  def health: Endpoint[IO, String] = get(pathEmpty) {
     Ok("UP")
   }
 
   def service: Service[Request, Response] = Bootstrap
-    .serve[Application.Json](first :+: second :+: third)
+    .serve[Application.Json](eq :+: information :+: health)
     .toService
 
   Await.ready(Http.server.serve(":8081", service))
