@@ -1,19 +1,21 @@
-*.class
-*.log
-*.iml
-
-# sbt specific
-.cache/
-.history/
-.lib/
 dist/*
 target/
 lib_managed/
 src_managed/
-project/target/
-project/plugins/project/
-
-# Scala-IDE specific
-.scala_dependencies
-.worksheet
-.idea
+Thumbs.db
+build/
+out/
+.cache/
+.history/
+.lib/
+.DS_Store
+.gradle
+.project
+.settings
+.classpath
+*.class
+*.log
+*.iml
+*.ipr
+*.iws
+.idea/
