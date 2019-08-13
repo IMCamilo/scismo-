@@ -2,7 +2,7 @@
 
 It`s usefull for bring the recently earthquakes on Chile.
 
-1. ```sbt compile```+
+1. ```sbt compile```
 
 2. ```sbt test```
 
